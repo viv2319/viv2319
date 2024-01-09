@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIKU - Your Friendly AI Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #chatbox {
+            width: 400px;
+            height: 300px;
+            overflow: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 0 auto;
+        }
+        #inputBox {
+            width: 300px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PIKU - Your Friendly AI Assistant</h1>
+    <div id="chatbox"></div>
+    <input type="text" id="inputBox" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        function sendMessage() {
+            var inputBox = document.getElementById("inputBox");
+            var message = inputBox.value;
+            inputBox.value = "";
+
+            var chatbox = document.getElementById("chatbox");
+            chatbox.innerHTML += "<p>User: " + message + "</p>";
+
+            var response = getPikuResponse(message);
+            chatbox.innerHTML += "<p>PIKU: " + response + "</p>";
+        }
+
+        function getPikuResponse(message) {
+            // Emulating responses similar to the AI model
+            message = message.toLowerCase();
+
+            if (message.includes("hello")) {
+                return "Greetings! How may I be of service?";
+            } else if (message.includes("how are you")) {
+                return "I'm functioning well, thank you. How can I assist you?";
+            } else if (message.includes("your name")) {
+                return "I am Piku, your helpful AI companion.";
+            } else if (message.includes("weather")) {
+                return "I'm afraid I don't have real-time weather data. Is there something else you'd like to know?";
+            } else if (message.includes("bye")) {
+                return "Farewell! Feel free to return if you have more questions.";
+            } else if (message.includes("tell me a joke")) {
+                return "Certainly! Why don't scientists trust atoms? Because they make up everything!";
+            } else if (message.includes("your favorite color")) {
+                return "I don't have personal preferences, but I'd imagine binary colors are quite stylish.";
+            } else if (message.includes("who created you")) {
+                return "I was created by Vivan Mehta.";
+            } else if (message.includes("thank you")) {
+                return "You're welcome! If you have more inquiries, feel free to ask.";
+            } else if (message.includes("website")) {
+                return "Certainly, check out this <a href='https://example.com' target='_blank'>example website</a>.";
+            } else if (message.includes("calculate")) {
+                return "Performing calculations is within my capabilities. Feel free to ask a mathematical question!";
+            } else if (message.includes("info")) {
+                return "I'm Piku, your conversational AI companion. Ask me anything, and I'll do my best to assist you.";
+            } else if (message.includes("google")) {
+                return "Certainly, here's the link to Google: <a href='https://www.google.com' target='_blank'>Google</a>.";
+            } else {
+                return "I don't have an answer for that particular question.";
+            }
+        }
+    </script>
+</body>
+</html>
